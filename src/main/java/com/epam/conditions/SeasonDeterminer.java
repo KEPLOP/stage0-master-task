@@ -1,20 +1,31 @@
 package com.epam.conditions;
 
 public class SeasonDeterminer {
-
     public void tellTheSeason(int monthNumber) {
-        String season;
-        if (monthNumber == 12 || monthNumber == 1 || monthNumber == 2) {
-            season = "Winter";
-        } else if (monthNumber == 3 || monthNumber == 4 || monthNumber == 5) {
-            season = "Spring";
-        } else if (monthNumber == 6 || monthNumber == 7 || monthNumber == 8) {
-            season = "Summer";
-        } else if (monthNumber == 9 || monthNumber == 10 || monthNumber == 11) {
-            season = "Fall";
-        } else {
-            season = "Wrong month number";
+        switch (monthNumber) {
+            case 12:
+            case 1:
+            case 2:
+                System.out.println("Winter");
+                break;
+            case 3:
+            case 4:
+            case 5:
+                System.out.println("Spring");
+                break;
+            case 6:
+            case 7:
+            case 8:
+                System.out.println("Summer");
+                break;
+            case 9:
+            case 10:
+            case 11:
+                System.out.println("Fall");
+                break;
+            default:
+                System.out.println("Wrong month number");
+                break;
         }
     }
-
 }

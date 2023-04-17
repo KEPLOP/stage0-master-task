@@ -1,9 +1,8 @@
 package com.epam.OOP;
-
 public class Animal {
-    private String color;
-    private int numberOfPaws;
-    private boolean hasFur;
+    protected String color;
+    protected int numberOfPaws;
+    protected boolean hasFur;
 
     public Animal(String color, int numberOfPaws, boolean hasFur) {
         this.color = color;
@@ -11,38 +10,9 @@ public class Animal {
         this.hasFur = hasFur;
     }
 
-    public Animal() {
-
-    }
-
     public String getDescription() {
-        String pawString = (numberOfPaws == 1) ? "paw" : "paws";
-        String furString = (hasFur) ? "a" : "no";
-        return "This animal is mostly " + color + ". It has " + numberOfPaws + " " + pawString + " and " + furString + " fur.";
-    }
-
-    // Getters and setters
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public int getNumberOfPaws() {
-        return numberOfPaws;
-    }
-
-    public void setNumberOfPaws(int numberOfPaws) {
-        this.numberOfPaws = numberOfPaws;
-    }
-
-    public boolean hasFur() {
-        return hasFur;
-    }
-
-    public void setHasFur(boolean hasFur) {
-        this.hasFur = hasFur;
+        String plural = (numberOfPaws == 1) ? "paw" : "paws";
+        String fur = (hasFur) ? "a" : "no";
+        return "This animal is mostly " + color + ". It has " + numberOfPaws + " " + plural + " and " + fur + " fur.";
     }
 }

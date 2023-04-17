@@ -1,14 +1,15 @@
 package com.epam.OOP;
 
 public class Bird extends Animal {
-    public Bird(String color, int numberOfPaws, boolean hasFur) {
+    public Bird() {
         super("blue", 2, false);
     }
+
     @Override
     public String getDescription() {
-        String pawString = (getNumberOfPaws() == 1) ? "paw" : "paws";
-        String furString = (hasFur()) ? "a" : "no";
-        return "This animal is mostly " + getColor() + ". It has " + getNumberOfPaws() + " " + pawString + " and " + furString + " fur. Moreover, it has 2 wings and can fly.";
+        String plural = (numberOfPaws == 1) ? "paw" : "paws";
+        String fur = (hasFur) ? "a" : "no";
+        return super.getDescription() + " Moreover, it has 2 wings and can fly.";
     }
 }
 

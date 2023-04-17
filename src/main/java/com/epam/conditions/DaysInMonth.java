@@ -1,37 +1,32 @@
 package com.epam.conditions;
 
 public class DaysInMonth {
-
     public void printDays(int year, int month) {
-        if (year < 0 || month < 1 || month > 12) {
-            System.out.println("Invalid date");
+        // Check if year is valid
+        if (year < 0) {
+            System.out.println("invalid date");
             return;
         }
-        int daysInMonth = 0;
-        switch (month) {
-            case 2:
-                daysInMonth = isLeapYear(year) ? 29 : 28;
-                break;
-            case 4:
-            case 6:
-            case 9:
-            case 11:
-                daysInMonth = 30;
-                break;
-            default:
-                daysInMonth = 31;
-                break;
+
+        // Check if month is valid
+        if (month < 1 || month > 12) {
+            System.out.println("invalid date");
+            return;
         }
-    }
-    public static boolean isLeapYear(int year) {
-        if (year % 400 == 0) {
-            return true;
-        } else if (year % 100 == 0) {
-            return false;
-        } else if (year % 4 == 0) {
-            return true;
+
+        // Get the number of days in the given month
+        int numDays;
+        if (month == 2) {
+            if (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0)) {
+                numDays = 29;  // leap year
+            } else {
+                numDays = 28;  // not a leap year
+            }
+        } else if (month == 4 || month == 6 || month == 9 || month == 11) {
+            numDays = 30;
         } else {
-            return false;
+            numDays = 31;
         }
+
     }
 }

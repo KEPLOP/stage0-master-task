@@ -124,8 +124,37 @@ public class ArrayTasks {
      * <p>
      * arr = [[3, 1, 2,], [3,2]] -> [[2, 3], [1, 2, 3]] arr = [[5, 4], [7]]       -> [[7], [4, 5]]
      */
-    public int[][] sortRaggedArray(int[][] arr) {
-        return null;
+    public static int[][] sortRaggedArray(int[][] arr) {
+        // Sort the one-dimensional arrays by length using a simple bubble sort
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j].length > arr[j+1].length) {
+                    int[] temp = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temp;
+                }
+            }
+        }
+
+        // Sort the numbers in each one-dimensional array using a simple selection sort
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length - 1; j++) {
+                int minIndex = j;
+                for (int k = j+1; k < arr[i].length; k++) {
+                    if (arr[i][k] < arr[i][minIndex]) {
+                        minIndex = k;
+                    }
+                }
+                if (minIndex != j) {
+                    int temp = arr[i][j];
+                    arr[i][j] = arr[i][minIndex];
+                    arr[i][minIndex] = temp;
+                }
+            }
+        }
+
+        return arr;
     }
+
 
 }

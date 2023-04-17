@@ -1,17 +1,17 @@
 package com.epam.loops;
 
 public class Power {
-
     public void printPower(int numberToPrint, int power) {
-        double result = 1;
-
-        for (int i = 1; i <= power; i++) {
+        int result = 1;
+        for (int i = 0; i < power; i++) {
             result *= numberToPrint;
         }
+        System.out.println(result);
     }
 
     public static void main(String[] args) {
-        new Power().printPower(10, 3);
+        Power power = new Power();
+        power.printPower(10, 3); // Output: 10 raised to the power of 3 is 1000
     }
-
 }
+
